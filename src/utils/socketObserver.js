@@ -21,8 +21,7 @@ class SocketObserver {
 
 
     this.socket.on(SOCKET_EVENT, (response) => {
-      const {data} = response;
-      this.observers.forEach(obs => obs.o(data));
+      this.observers.forEach(obs => obs.o(response));
     });
   }
 
