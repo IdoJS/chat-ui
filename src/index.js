@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
 import "./index.scss";
-import Login from "./components/Login";
+import App from "./components/App";
 import io from "socket.io-client";
 
 
-ReactDOM.render(<Login/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 
 //connecting to Socket.IO chat server

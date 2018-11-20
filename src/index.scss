@@ -1,3 +1,16 @@
+$avatarList: (
+        img01: "https://spotim-demo-chat-server.herokuapp.com/avatars/001-snorlax.png",
+        img02: "https://spotim-demo-chat-server.herokuapp.com/avatars/002-psyduck.png",
+        img03: "https://spotim-demo-chat-server.herokuapp.com/avatars/003-pikachu.png",
+        img04: "https://spotim-demo-chat-server.herokuapp.com/avatars/004-jigglypuff.png",
+        img05: "https://spotim-demo-chat-server.herokuapp.com/avatars/005-bullbasaur.png",
+);
+
+$buttonTextColor: #000000;
+$buttonBColor: #FFFFFF;
+$buttonBColorHover: #D3D3D3;
+$shadowHover: #000000;
+
 body {
   margin: 0;
   padding: 0;
@@ -12,9 +25,78 @@ body {
       font-size: 1.5em;
     }
   }
+
+  .form {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    background-color: #D6E1FF;
+    display: flex;
+    flex-direction: column;
+
+    .form_row {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5%;
+
+      .avatar_radio_group {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  @each $avatarName, $avatarUrl in $avatarList {
+    .avatar_#{$avatarName} {
+      background: url($avatarUrl) center center no-repeat;
+      width: 30px;
+      height: 30px;
+      background-size: cover;
+    }
+  }
+
 }
 
+.primary_title {
+  text-decoration: underline;
+  font-weight: bold;
+  margin: 20px 20px;
+  padding: 20px 0;
+}
 
+.secondary_title {
+  font-weight: bold;
+}
+
+.primary_input {
+  padding: 5px;
+
+  &:hover{
+    box-shadow: 1px 1px $shadowHover;
+  }
+}
+
+.primary_button {
+  width: 50%;
+  padding: 20px;
+  margin: auto;
+  background-color: $buttonBColor;
+  color: $buttonTextColor;
+
+  &:hover{
+    background-color: $buttonBColorHover;
+    box-shadow: 1px 1px $shadowHover;
+  }
+
+  .big {
+    height: 50px;
+    line-height: 50px;
+    width: 100%;
+  }
+}
 
 
 
