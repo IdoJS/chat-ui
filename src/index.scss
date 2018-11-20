@@ -58,6 +58,25 @@ body {
     }
   }
 
+
+  .chat_box_container {
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
+    margin: 5px;
+
+    .chat_box {
+      border: 1px solid black;
+      height: 300px;
+      width: 300px;
+      overflow-y: auto;
+    }
+
+    .send_box {
+      display: flex;
+      padding: 5px 0;
+    }
+  }
 }
 
 .primary_title {
@@ -65,14 +84,17 @@ body {
   font-weight: bold;
   margin: 20px 20px;
   padding: 20px 0;
+  font-size: 22px;
 }
 
 .secondary_title {
   font-weight: bold;
+  font-size: 18px;
 }
 
 .primary_input {
   padding: 5px;
+  flex: 1 1 auto;
 
   &:hover{
     box-shadow: 1px 1px $shadowHover;
@@ -99,5 +121,14 @@ body {
 }
 
 
+.secondary_button {
+  background-color: $buttonBColor;
+  color: $buttonTextColor;
+
+  &:hover{
+    background-color: $buttonBColorHover;
+    box-shadow: 1px 1px $shadowHover;
+  }
+}
 
 
