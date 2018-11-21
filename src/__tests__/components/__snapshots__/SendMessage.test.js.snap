@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SendMessage component SnapShot rendering SendMessage 1`] = `
+<div
+  className="send_box"
+>
+  <input
+    className="primary_input"
+    disabled={false}
+    name="inputMessage"
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    placeholder="Type message..."
+    type="input"
+    value=""
+  />
+  <button
+    className="secondary_button"
+    disabled={true}
+    onClick={[Function]}
+  >
+    send
+  </button>
+</div>
+`;

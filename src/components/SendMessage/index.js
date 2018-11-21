@@ -29,7 +29,7 @@ class SendMessage extends React.PureComponent {
   }
 
   onMessageTyping() {
-    this.props.onMessageTyping(this.state.inputMessage.length !== 0);
+    this.props.onMessageTyping && this.props.onMessageTyping(this.state.inputMessage.length !== 0);
   }
 
   sendEnter(ev) {
@@ -43,7 +43,7 @@ class SendMessage extends React.PureComponent {
   }
 
   onSend() {
-    this.props.onMessageSend({text: this.state.inputMessage});
+    this.props.onMessageSend && this.props.onMessageSend({text: this.state.inputMessage});
 
     this.setState({
       inputMessage: ''
@@ -52,7 +52,7 @@ class SendMessage extends React.PureComponent {
 
   render() {
     return (
-      <div className='send_box'>
+      <div className='send_box' key={0}>
         <input className='primary_input' disabled={this.props.isLoading} name='inputMessage' type='input'
                onKeyPress={this.sendEnter}
                onChange={this.onTextChange} placeholder={this.props.isLoading ? 'Please wait...' : 'Type message...'}

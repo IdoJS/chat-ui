@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title component SnapShot rendering ChatRoom 1`] = `
+<h1
+  className="secondary_title"
+>
+  Hello 
+  mockUserName
+</h1>
+`;
