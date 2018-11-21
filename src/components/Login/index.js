@@ -21,7 +21,7 @@ class Login extends React.PureComponent {
       <h1 className="primary_title">Login</h1>
       <div className="form_row">
         <h2 className="secondary_title">Please enter userName</h2>
-        <input className="primary_input" name="userName" value={this.state.userName} onChange={this.onTextChange}/>
+        <input type="text" className="primary_input" name="userName" value={this.state.userName} onChange={this.onTextChange}/>
       </div>
       <div className="form_row">
         <h2 className="secondary_title">Please choose avatar</h2>
