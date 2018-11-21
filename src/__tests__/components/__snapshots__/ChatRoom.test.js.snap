@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChatRoom component SnapShot rendering ChatRoom 1`] = `
+<div
+  className="chat_box_container"
+>
+  <h1
+    className="secondary_title"
+  >
+    Hello 
+    MockUser
+  </h1>
+  <ul
+    className="chat_box"
+    id="chat_container"
+  />
+  <div
+    className="send_box"
+  >
+    <input
+      className="primary_input"
+      disabled={false}
+      name="inputMessage"
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Type message..."
+      type="input"
+      value=""
+    />
+    <button
+      className="secondary_button"
+      disabled={true}
+      onClick={[Function]}
+    >
+      send
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ChatRoom component SnapShot rendering Login 1`] = `
+<div
+  className="chat_box_container"
+>
+  <h1
+    className="secondary_title"
+  >
+    Hello 
+    MockUser
+  </h1>
+  <ul
+    className="chat_box"
+    id="chat_container"
+  />
+  <div
+    className="send_box"
+  >
+    <input
+      className="primary_input"
+      disabled={false}
+      name="inputMessage"
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="Type message..."
+      type="input"
+      value=""
+    />
+    <button
+      className="secondary_button"
+      disabled={true}
+      onClick={[Function]}
+    >
+      send
+    </button>
+  </div>
+</div>
+`;

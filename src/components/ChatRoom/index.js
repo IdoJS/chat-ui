@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import socketObserver from '../../utils/socketObserver';
 
 import Title from '../Title';
@@ -65,6 +65,27 @@ class ChatRoom extends React.PureComponent {
                    onMessageTyping={this.onMessageTyping}/>
     </div>);
   }
+};
+
+
+ChatRoom.defaultProps = {
+  chatData: {
+    loading: false,
+    timestamp: Date.now(),
+    chatArr: [],
+    typingArr: [],
+    timeout: false
+  }
+};
+
+ChatRoom.propTypes = {
+  chatData: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    timestamp: PropTypes.number.isRequired,
+    chatArr: PropTypes.array.isRequired,
+    typingArr: PropTypes.array.isRequired,
+    timeout: PropTypes.bool.isRequired
+  }).isRequired
 };
 
 export default ChatRoom;

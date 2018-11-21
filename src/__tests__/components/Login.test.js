@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 
 import Login from '../../../src/components/Login';
 
-describe('App component', () => {
+describe('Login component', () => {
 
   const textValue = 'mockTest';
   const radioValue = 'mockAvatar';
