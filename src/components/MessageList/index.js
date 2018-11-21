@@ -5,12 +5,16 @@ import PropTypes from 'prop-types';
 class MessageList extends React.PureComponent {
   render() {
     const {chatData, currentUser} = this.props;
-    const {chatArr} = chatData;
+    const {chatArr, typingArr} = chatData;
     const items = chatArr.map((data, key) => {
       return <MessageListItem {...data} currentUser={currentUser} key={key}/>
     });
 
-    return <ul className='chat_box' id='chat_container'>{items}</ul>
+    const typing = typingArr.map((data, key) => {
+      return <MessageListItem {...data} currentUser={currentUser} key={key}/>
+    });
+
+    return <ul className='chat_box' id='chat_container'>{items} {typing}</ul>
   }
 
   componentDidUpdate() {
@@ -22,7 +26,8 @@ class MessageList extends React.PureComponent {
 MessageList.propTypes = {
   currentUser: PropTypes.string.isRequired,
   chatData: PropTypes.shape({
-    chatArr: PropTypes.array.isRequired
+    chatArr: PropTypes.array.isRequired,
+    typingArr: PropTypes.array.isRequired,
   }).isRequired
 };
 

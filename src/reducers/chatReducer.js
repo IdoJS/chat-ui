@@ -37,12 +37,31 @@ const chatReducer = (state = chatReducerInitializeState, action) => {
       };
       break;
 
+    case ActionTypes.MESSAGE_TYPING:
+      const typingUserIndex = state.typingArr.findIndex(typing => typing.data.userName === action.payload.data.userName)
+      let typingArr = [...state.typingArr];
+      if (action.payload.data.isTyping) {
+        (typingUserIndex === -1) ? typingArr.push(action.payload) : null;
+      } else {
+        typingArr.splice(typingUserIndex, 1);
+      }
+
+      nextState = {
+        ...state,
+        typingArr,
+        loading: false,
+        timeout: true,
+        timestamp: Date.now()
+
+      };
+      break;
+
     default:
       nextState = state;
       break;
   }
 
-  logPrint(action.type, state, nextState);
+  logPrint(action.type, 'state:', state, 'nextState:', nextState);
 
   return nextState;
 };

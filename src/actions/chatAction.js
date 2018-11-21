@@ -17,3 +17,12 @@ export const messageReceived = (data) => {
     }
   };
 };
+
+export const messageTyping = (data) => {
+  return {
+    type: ActionTypes.MESSAGE_TYPING,
+    payload: {
+      data
+    }
+  };
+};

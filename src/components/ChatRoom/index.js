@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import socketObserver from '../../utils/socketObserver';
 
+import RequestTypes from '../../requestTypes';
+
 import Title from '../Title';
 import SendMessage from '../SendMessage';
 import MessageList from '../MessageList';
@@ -27,21 +29,35 @@ class ChatRoom extends React.PureComponent {
       text,
       userName: this.currentUserName,
       timestamp: Date.now(),
-      avatar: this.currentAvatarClass
+      avatar: this.currentAvatarClass,
+      isTyping: false,
+      requestType: RequestTypes.REQUEST_SENDING
     };
 
     socketObserver.send(data);
-    this.props.userSendMessage(data);
+    this.props.userSendMessage && this.props.userSendMessage(data);
   }
 
   onMessageTyping(isTyping) {
-    // TODO handle user typing
+    socketObserver.send({
+      text: '...',
+      userName: this.currentUserName,
+      timestamp: Date.now(),
+      avatar: this.currentAvatarClass,
+      isTyping,
+      requestType: RequestTypes.REQUEST_TYPING
+    });
   }
 
   componentDidMount() {
     socketObserver.subscribe({
-      identifier: '', o: function (data) {
-        this.props.updateMessageList && this.props.updateMessageList(data);
+      identifier: this,
+      o: function (data) {
+        if (data.requestType === RequestTypes.REQUEST_TYPING) {
+          this.props.updateMessageTyping && this.props.updateMessageTyping(data)
+        } else {
+          this.props.updateMessageList(data);
+        }
       }.bind(this)
     });
   }
@@ -78,6 +94,9 @@ ChatRoom.defaultProps = {
   },
   updateMessageList: () => {
     console.warn('Please implement updateMessageList');
+  },
+  updateMessageTyping: () => {
+    console.warn('Please implement updateMessageTyping');
   }
 };
 
@@ -89,7 +108,8 @@ ChatRoom.propTypes = {
     typingArr: PropTypes.array.isRequired,
     timeout: PropTypes.bool.isRequired
   }).isRequired,
-  updateMessageList: PropTypes.func.isRequired
+  updateMessageList: PropTypes.func.isRequired,
+  updateMessageTyping : PropTypes.func.isRequired
 };
 
 export default ChatRoom;
