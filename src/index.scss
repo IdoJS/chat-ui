@@ -10,7 +10,97 @@ $buttonTextColor: #000000;
 $buttonBColor: #FFFFFF;
 $buttonBColorHover: #D3D3D3;
 $shadowHover: #000000;
+$userMessageBColor: #81BBAF;
+$otherMessageBColor: #6E8EBB;
 
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+em,
+img,
+b,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
   padding: 0;
@@ -28,10 +118,10 @@ body {
 
   .form {
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
-    right:0;
+    right: 0;
     background-color: #D6E1FF;
     display: flex;
     flex-direction: column;
@@ -58,7 +148,6 @@ body {
     }
   }
 
-
   .chat_box_container {
     position: absolute;
     bottom: 0;
@@ -70,6 +159,50 @@ body {
       height: 300px;
       width: 300px;
       overflow-y: auto;
+
+      .chat_item {
+        padding: 5px;
+        min-height: 50px;
+        line-height: 50px;
+        display: flex;
+
+        &.default_msg {
+          flex-direction: row-reverse;
+        }
+
+        .chat_item_avatar {
+          min-width: 75px;
+          display: flex;
+          flex-direction: column;
+          line-height: 20px;
+          height: 70px;
+
+          .chat_item_avatarImg {
+            margin: auto;
+          }
+
+          .chat_item_timestamp {
+            text-align: center;
+          }
+        }
+
+        .chat_item_text {
+          border-radius: 5px;
+          padding: 0 5px;
+          line-height: 20px;
+          max-width: 280px;
+          min-width: 50px;
+          word-break: break-all;
+
+          &.my_msg {
+            background: $userMessageBColor;
+          }
+
+          &.default_msg {
+            background: $otherMessageBColor;
+          }
+        }
+      }
     }
 
     .send_box {
@@ -96,7 +229,7 @@ body {
   padding: 5px;
   flex: 1 1 auto;
 
-  &:hover{
+  &:hover {
     box-shadow: 1px 1px $shadowHover;
   }
 }
@@ -108,7 +241,7 @@ body {
   background-color: $buttonBColor;
   color: $buttonTextColor;
 
-  &:hover{
+  &:hover {
     background-color: $buttonBColorHover;
     box-shadow: 1px 1px $shadowHover;
   }
@@ -120,16 +253,17 @@ body {
   }
 }
 
-
 .secondary_button {
   padding: 20px;
   background-color: $buttonBColor;
   color: $buttonTextColor;
 
-  &:hover{
+  &:hover {
     background-color: $buttonBColorHover;
     box-shadow: 1px 1px $shadowHover;
   }
 }
+
+
 
 

@@ -8,7 +8,7 @@ import MessageList from '../../../src/components/MessageList';
 describe('MessageList component', () => {
   it('Should render the MessageList view', () => {
 
-    const wrapper = shallow(<MessageList userName={MOCK_USER_NAME} chatData={MOCK_CHAT_DATA_INIT}/>);
+    const wrapper = shallow(<MessageList currentUser={MOCK_USER_NAME} chatData={MOCK_CHAT_DATA_INIT}/>);
     const li = wrapper.find('li');
 
     expect(li).toHaveLength(0);
@@ -16,7 +16,7 @@ describe('MessageList component', () => {
   });
 
   it('SnapShot rendering MessageList', () => {
-    const wrapper = shallow(<MessageList userName={MOCK_USER_NAME} chatData={MOCK_CHAT_DATA_INIT}/>);
+    const wrapper = shallow(<MessageList currentUser={MOCK_USER_NAME} chatData={MOCK_CHAT_DATA_INIT}/>);
     const tree = renderer.create(wrapper).toJSON();
     expect(tree).toMatchSnapshot();
   });
