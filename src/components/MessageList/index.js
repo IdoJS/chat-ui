@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MessageList = () => {
+const MessageList = (props) => {
+  const {chatData, currentUser} = props;
+
+  const items = chatData.chatArr.map((listItem, key) => {
+    return <li key={key}>{listItem.data.text}</li>
+  });
+
   return <ul className='chat_box' id='chat_container'>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
-    <li>1</li>
+    {items}
   </ul>
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {getUserName, getAvatarClass, setAvatarClass, setUserName} from '../../utils/storage';
 import Login from '../Login';
-import ChatRoom from '../../containers/ChatRoom'
-class App extends React.Component {
+import ChatRoom from '../../containers/ChatRoom';
+
+class App extends React.PureComponent {
 
   state = {
     userName: getUserName(),
@@ -26,11 +26,9 @@ class App extends React.Component {
   }
 
   render() {
-    if (!this.state.userName || !this.state.avatarClass) {
-      return <Login onUserCreate={this.onUserCreate}/>
-    } else {
-      return <ChatRoom />
-    }
+    return !this.state.userName || !this.state.avatarClass ?
+      (<Login onUserCreate={this.onUserCreate}/>) :
+      (<ChatRoom/>);
   }
 }
 

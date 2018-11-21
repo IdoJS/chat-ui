@@ -8,3 +8,12 @@ export const messageSend = ({data}) => {
     }
   };
 };
+
+export const messageReceived = (data) => {
+  return {
+    type: ActionTypes.MESSAGE_RECEIVED,
+    payload: {
+      data
+    }
+  };
+};
