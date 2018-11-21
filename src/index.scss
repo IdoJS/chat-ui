@@ -181,13 +181,14 @@ body {
           display: flex;
           flex-direction: column;
           line-height: 20px;
-          height: 100px;
+          height: 80px;
           width: 70px;
 
           .chat_item_avatarName{
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            text-align: center;
           }
 
           .chat_item_avatarImg {
@@ -196,6 +197,8 @@ body {
 
           .chat_item_timestamp {
             text-align: center;
+            font-size: 12px;
+            line-height: 12px;
           }
         }
 
