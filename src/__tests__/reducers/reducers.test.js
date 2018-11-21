@@ -1,5 +1,5 @@
 import chatReducer from '../../reducers/chatReducer';
-import ActionTypes from '../../../src/actionTypes';
+import ActionTypes from '../../actionTypes';
 import {setUserName} from '../../utils/storage';
 import {MOCK_CHAT_DATA_INIT, MOCK_USER_NAME} from '../../__mocks__/mockData';
 
@@ -39,6 +39,22 @@ describe('Test chatReducer', () => {
 
     expect(nextState.loading).toBeFalsy();
     expect(nextState.chatArr).toHaveLength(1);
+
+  });
+
+  it('ActionTypes.MESSAGE_RECEIVED state', () => {
+    const nextState = chatReducer(undefined, {
+      type: ActionTypes.MESSAGE_TYPING,
+      payload : {
+        data : {
+          userName : MOCK_USER_NAME,
+          isTyping : true
+        }
+      }
+    });
+
+    expect(nextState.loading).toBeFalsy();
+    expect(nextState.typingArr).toHaveLength(1);
 
   });
 });

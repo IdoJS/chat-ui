@@ -38,10 +38,10 @@ const chatReducer = (state = chatReducerInitializeState, action) => {
       break;
 
     case ActionTypes.MESSAGE_TYPING:
-      const typingUserIndex = state.typingArr.findIndex(typing => typing.data.userName === action.payload.data.userName)
+      const typingUserIndex = state.typingArr.findIndex(typing => typing.data.userName === action.payload.data.userName);
       let typingArr = [...state.typingArr];
-      if (action.payload.data.isTyping) {
-        (typingUserIndex === -1) ? typingArr.push(action.payload) : null;
+      if (action.payload.data.isTyping && typingUserIndex === -1) {
+        typingArr.push(action.payload);
       } else {
         typingArr.splice(typingUserIndex, 1);
       }
@@ -50,7 +50,6 @@ const chatReducer = (state = chatReducerInitializeState, action) => {
         ...state,
         typingArr,
         loading: false,
-        timeout: true,
         timestamp: Date.now()
 
       };
