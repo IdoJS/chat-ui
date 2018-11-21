@@ -5,41 +5,50 @@ const SOCKET_EVENT = 'spotim/chat';
 /**
  * Singleton Observer that listen to socket
  */
+
+let observers = [];
+
 class SocketObserver {
 
   static instance;
 
-  constructor(){
-    if(this.instance){
+  constructor() {
+    if (this.instance) {
       return this.instance;
     }
 
     this.instance = this;
 
     this.socket = io(SOCKET_URL);
-    this.observers = [];
 
 
     this.socket.on(SOCKET_EVENT, (response) => {
-      this.observers.forEach(obs => obs.o(response));
+      observers.forEach(obs => typeof obs.o === 'function' && obs.o(response));
     });
   }
 
-  subscribe({identifier, o}){
-    this.observers.push({identifier, o});
+  subscribe({identifier, o}) {
+    observers.push({identifier, o});
     return this;
   }
 
-  unSubscribe({identifier}){
-    this.observers = this.observers.filter(ob => ob.identifier !== identifier);
+  unSubscribe({identifier}) {
+    observers = observers.filter(ob => ob.identifier !== identifier);
     return this;
   }
 
-  send(requestData){
+  send(requestData) {
     this.socket.emit(SOCKET_EVENT, requestData);
     return this;
   }
 
+  clear() {
+    observers = [];
+  }
+
+  getObservers(){
+    return observers;
+  }
 }
 
 export default new SocketObserver();
