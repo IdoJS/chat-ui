@@ -2,6 +2,7 @@ import {getIO} from './socket';
 
 const SOCKET_URL = 'https://spotim-demo-chat-server.herokuapp.com';
 const SOCKET_EVENT = 'spotim/chat';
+const SOCKET_IDENTIFIER = 'socket_identifier';
 /**
  * Singleton Observer that listen to socket
  */
@@ -25,7 +26,9 @@ class SocketObserver {
 
 
     window.socket.on(SOCKET_EVENT, (response) => {
-      observers.forEach(obs => typeof obs.o === 'function' && obs.o(response));
+      if (response.id === SOCKET_IDENTIFIER){
+        observers.forEach(obs => typeof obs.o === 'function' && obs.o(response));
+      }
     });
   }
 
@@ -40,7 +43,7 @@ class SocketObserver {
   }
 
   send(requestData) {
-    window.socket.emit(SOCKET_EVENT, requestData);
+    window.socket.emit(SOCKET_EVENT, Object.assign(requestData, {id: SOCKET_IDENTIFIER}));
     return this;
   }
 
@@ -48,7 +51,7 @@ class SocketObserver {
     observers = [];
   }
 
-  getObservers(){
+  getObservers() {
     return observers;
   }
 }

@@ -18,6 +18,7 @@ const chatReducer = (state = chatReducerInitializeState, action) => {
   switch (action.type) {
 
     case ActionTypes.MESSAGE_SEND:
+
       nextState = {
         ...state,
         loading: true,
@@ -26,6 +27,7 @@ const chatReducer = (state = chatReducerInitializeState, action) => {
       break;
 
     case ActionTypes.MESSAGE_RECEIVED:
+
       nextState = {
         ...state,
         chatArr: [...state.chatArr, action.payload],

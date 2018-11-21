@@ -1,6 +1,6 @@
 import ActionTypes from '../actionTypes';
 
-export const messageSend = ({data}) => {
+export const messageSend = (data) => {
   return {
     type: ActionTypes.MESSAGE_SEND,
     payload: {
