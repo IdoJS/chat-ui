@@ -1,4 +1,4 @@
-import io from 'socket.io-client';
+import {getIO} from './socket';
 
 const SOCKET_URL = 'https://spotim-demo-chat-server.herokuapp.com';
 const SOCKET_EVENT = 'spotim/chat';
@@ -13,16 +13,18 @@ class SocketObserver {
   static instance;
 
   constructor() {
+    const io = getIO();
+
     if (this.instance) {
       return this.instance;
     }
 
     this.instance = this;
 
-    this.socket = io(SOCKET_URL);
+    window.socket = io(SOCKET_URL);
 
 
-    this.socket.on(SOCKET_EVENT, (response) => {
+    window.socket.on(SOCKET_EVENT, (response) => {
       observers.forEach(obs => typeof obs.o === 'function' && obs.o(response));
     });
   }
@@ -38,7 +40,7 @@ class SocketObserver {
   }
 
   send(requestData) {
-    this.socket.emit(SOCKET_EVENT, requestData);
+    window.socket.emit(SOCKET_EVENT, requestData);
     return this;
   }
 

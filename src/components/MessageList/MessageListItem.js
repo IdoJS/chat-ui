@@ -8,7 +8,7 @@ const MessageListItem = (props) => {
   const currentTimeArr = splitTimestamp(timestamp);
   const msgDirection = userName === currentUser ? 'my_msg' : 'default_msg';
 
-  return <li className={`chat_item ${msgDirection}`} key={0}>
+  return <li className={`chat_item ${msgDirection}`}>
     <div className='chat_item_avatar'>
       <div className={`chat_item_avatarImg ${avatar}`}/>
       <h3

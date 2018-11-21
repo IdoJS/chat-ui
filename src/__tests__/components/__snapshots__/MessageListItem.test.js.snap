@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageListItem component SnapShot rendering MessageListItem 1`] = `
+<li
+  className="chat_item my_msg"
+>
+  <div
+    className="chat_item_avatar"
+  >
+    <div
+      className="chat_item_avatarImg mock_avatar_class"
+    />
+    <h3
+      className="chat_item_timestamp "
+    >
+      <div>
+        00:00:00
+      </div>
+      <div>
+        1970-01-01
+      </div>
+    </h3>
+  </div>
+  <p
+    className="chat_item_text my_msg"
+  >
+    mock_text
+  </p>
+</li>
+`;

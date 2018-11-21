@@ -4,9 +4,5 @@ exports[`MessageList component SnapShot rendering MessageList 1`] = `
 <ul
   className="chat_box"
   id="chat_container"
->
-   key=
-  0
-  u
-</ul>
+/>
 `;

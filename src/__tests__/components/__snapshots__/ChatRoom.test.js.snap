@@ -13,11 +13,7 @@ exports[`ChatRoom component SnapShot rendering ChatRoom 1`] = `
   <ul
     className="chat_box"
     id="chat_container"
-  >
-     key=
-    0
-    u
-  </ul>
+  />
   <div
     className="send_box"
   >

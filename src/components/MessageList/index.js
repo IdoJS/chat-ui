@@ -10,7 +10,7 @@ class MessageList extends React.PureComponent {
       return <MessageListItem {...data} currentUser={currentUser} key={key}/>
     });
 
-    return <ul className='chat_box' id='chat_container'>{items} key={0}u</ul>
+    return <ul className='chat_box' id='chat_container'>{items}</ul>
   }
 
   componentDidUpdate() {
