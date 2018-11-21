@@ -6,7 +6,6 @@ const currentUserName = getUserName();
 
 const chatReducerInitializeState = {
   loading: false,
-  timestamp: Date.now(),
   chatArr: [],
   typingArr: [],
   timeout: false
@@ -21,8 +20,7 @@ const chatReducer = (state = chatReducerInitializeState, action) => {
 
       nextState = {
         ...state,
-        loading: true,
-        timestamp: Date.now()
+        loading: true
       };
       break;
 
@@ -32,16 +30,15 @@ const chatReducer = (state = chatReducerInitializeState, action) => {
         ...state,
         chatArr: [...state.chatArr, action.payload],
         typingArr: state.typingArr.filter(typing => typing.data.userName !== action.payload.data.userName),
-        loading: action.payload.userName === currentUserName,
-        timestamp: Date.now()
+        loading: action.payload.userName === currentUserName
       };
       break;
 
     case ActionTypes.MESSAGE_TYPING:
       const typingUserIndex = state.typingArr.findIndex(typing => typing.data.userName === action.payload.data.userName);
       let typingArr = [...state.typingArr];
-      if (action.payload.data.isTyping && typingUserIndex === -1) {
-        typingArr.push(action.payload);
+      if (action.payload.data.isTyping) {
+        typingUserIndex === -1 ? typingArr.push(action.payload) : null;
       } else {
         typingArr.splice(typingUserIndex, 1);
       }
@@ -49,8 +46,7 @@ const chatReducer = (state = chatReducerInitializeState, action) => {
       nextState = {
         ...state,
         typingArr,
-        loading: false,
-        timestamp: Date.now()
+        loading: false
 
       };
       break;

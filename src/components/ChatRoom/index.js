@@ -10,7 +10,7 @@ import MessageList from '../MessageList';
 
 import {getUserName, getAvatarClass} from '../../utils/storage';
 
-class ChatRoom extends React.PureComponent {
+class ChatRoom extends React.Component {
 
   constructor(props) {
     super(props);
@@ -68,6 +68,14 @@ class ChatRoom extends React.PureComponent {
     });
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    const {chatData} = this.props;
+
+    return chatData.typingArr.length !== nextProps.chatData.typingArr.length ||
+      chatData.chatArr.length !== nextProps.chatData.chatArr.length ||
+      chatData.loading !== nextProps.chatData.loading
+  }
+
   render() {
     return (<div className='chat_box_container'>
       <Title userName={this.currentUserName}
@@ -103,7 +111,6 @@ ChatRoom.defaultProps = {
 ChatRoom.propTypes = {
   chatData: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
-    timestamp: PropTypes.number.isRequired,
     chatArr: PropTypes.array.isRequired,
     typingArr: PropTypes.array.isRequired,
     timeout: PropTypes.bool.isRequired
