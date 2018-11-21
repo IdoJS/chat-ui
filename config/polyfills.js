@@ -1,5 +1,32 @@
 'use strict';
 
+const mockStorage = () => {
+  class LocalStorageMock {
+    constructor() {
+      this.store = {};
+    }
+
+    clear() {
+      this.store = {};
+    }
+
+    getItem(key) {
+      return this.store[key] || null;
+    }
+
+    setItem(key, value) {
+      this.store[key] = value.toString();
+    }
+
+    removeItem(key) {
+      delete this.store[key];
+    }
+  };
+
+  global.sessionStorage = new LocalStorageMock;
+  global.localStorage = new LocalStorageMock;
+};
+
 if (typeof Promise === 'undefined') {
   // Rejection tracking prevents a common issue where React gets into an
   // inconsistent state due to an error, but it gets swallowed by a Promise,
@@ -19,4 +46,11 @@ Object.assign = require('object-assign');
 // We don't polyfill it in the browser--this is user's responsibility.
 if (process.env.NODE_ENV === 'test') {
   require('raf').polyfill(global);
+
+  var enzyme = require('enzyme');
+  var Adapter = require('enzyme-adapter-react-16');
+
+  enzyme.configure({ adapter: new Adapter() });
+
+  mockStorage();
 }

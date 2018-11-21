@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component Should render the login view when storage is empty 1`] = `
+<form
+  className="form"
+>
+  <h1
+    className="primary_title"
+  >
+    Login
+  </h1>
+  <div
+    className="form_row"
+  >
+    <h2
+      className="secondary_title"
+    >
+      Please enter userName
+    </h2>
+    <input
+      className="primary_input"
+      name="userName"
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+  <div
+    className="form_row"
+  >
+    <h2
+      className="secondary_title"
+    >
+      Please choose avatar
+    </h2>
+    <div
+      className="avatar_radio_group"
+      onChange={[Function]}
+    >
+      <input
+        className="avatar_radio"
+        id="avatar_img01"
+        name="avatar"
+        type="radio"
+      />
+       
+      <div
+        className="avatar_img01"
+      />
+      <input
+        className="avatar_radio"
+        id="avatar_img02"
+        name="avatar"
+        type="radio"
+      />
+       
+      <div
+        className="avatar_img02"
+      />
+      <input
+        className="avatar_radio"
+        id="avatar_img03"
+        name="avatar"
+        type="radio"
+      />
+       
+      <div
+        className="avatar_img03"
+      />
+      <input
+        className="avatar_radio"
+        id="avatar_img04"
+        name="avatar"
+        type="radio"
+      />
+       
+      <div
+        className="avatar_img04"
+      />
+      <input
+        className="avatar_radio"
+        id="avatar_img05"
+        name="avatar"
+        type="radio"
+      />
+       
+      <div
+        className="avatar_img05"
+      />
+    </div>
+  </div>
+  <button
+    className="primary_button big"
+    onClick={[Function]}
+  >
+    Submit
+  </button>
+</form>
+`;
+
+exports[`App component SnapShot rendering Login 1`] = `
+<form
+  className="form"
+>
+  <h1
+    className="primary_title"
+  >
+    Login
+  </h1>
+  <div
+    className="form_row"
+  >
+    <h2
+      className="secondary_title"
+    >
+      Please enter userName
+    </h2>
+    <input
+      className="primary_input"
+      name="userName"
+      onChange={[Function]}
+      value=""
+    />
+  </div>
+  <div
+    className="form_row"
+  >
+    <h2
+      className="secondary_title"
+    >
+      Please choose avatar
+    </h2>
+    <div
+      className="avatar_radio_group"
+      onChange={[Function]}
+    >
+      <input
+        className="avatar_radio"
+        id="avatar_img01"
+        name="avatar"
+        type="radio"
+      />
+       
+      <div
+        className="avatar_img01"
+      />
+      <input
+        className="avatar_radio"
+        id="avatar_img02"
+        name="avatar"
+        type="radio"
+      />
+       
+      <div
+        className="avatar_img02"
+      />
+      <input
+        className="avatar_radio"
+        id="avatar_img03"
+        name="avatar"
+        type="radio"
+      />
+       
+      <div
+        className="avatar_img03"
+      />
+      <input
+        className="avatar_radio"
+        id="avatar_img04"
+        name="avatar"
+        type="radio"
+      />
+       
+      <div
+        className="avatar_img04"
+      />
+      <input
+        className="avatar_radio"
+        id="avatar_img05"
+        name="avatar"
+        type="radio"
+      />
+       
+      <div
+        className="avatar_img05"
+      />
+    </div>
+  </div>
+  <button
+    className="primary_button big"
+    onClick={[Function]}
+  >
+    Submit
+  </button>
+</form>
+`;
