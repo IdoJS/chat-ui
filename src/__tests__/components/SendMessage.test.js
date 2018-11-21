@@ -21,8 +21,8 @@ describe('SendMessage component', () => {
     expect(btn).toHaveLength(1);
     expect(input).toHaveLength(1);
 
-    expect(btn.props()['disabled']).toBe(true); // no text in input
-    expect(input.props()['disabled']).toBe(false); // isloading === false
+    expect(btn.props()['disabled']).toBeTruthy() // no text in input
+    expect(input.props()['disabled']).toBeFalsy(); // isloading === false
     expect(input.props()['placeholder']).toMatch('Type message...'); // isloading === false
 
     input.simulate('change', {
@@ -45,8 +45,8 @@ describe('SendMessage component', () => {
     const btn = wrapper.find('button');
     const input = wrapper.find('input');
 
-    expect(btn.props()['disabled']).toBe(true); // no text in input
-    expect(input.props()['disabled']).toBe(true); // isloading === true
+    expect(btn.props()['disabled']).toBeTruthy(); // no text in input
+    expect(input.props()['disabled']).toBeTruthy(); // isloading === true
     expect(input.props()['placeholder']).toMatch('Please wait...'); // isloading === true
 
 

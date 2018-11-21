@@ -33,13 +33,13 @@ class SendMessage extends React.PureComponent {
   }
 
   sendEnter(ev) {
-    if (ev.key === ENTER_KEY) {
-      this.onSend()
+    if (ev.key === ENTER_KEY && this.state.inputMessage.length > 0) {
+      this.onSend();
     }
   }
 
   sendButton() {
-    this.onSend()
+    this.onSend();
   }
 
   onSend() {

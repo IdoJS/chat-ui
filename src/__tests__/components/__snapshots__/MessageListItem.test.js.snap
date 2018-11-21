@@ -7,6 +7,11 @@ exports[`MessageListItem component SnapShot rendering MessageListItem 1`] = `
   <div
     className="chat_item_avatar"
   >
+    <h3
+      className="chat_item_avatarName"
+    >
+      mock_user_name
+    </h3>
     <div
       className="chat_item_avatarImg mock_avatar_class"
     />

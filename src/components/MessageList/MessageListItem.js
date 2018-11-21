@@ -10,6 +10,7 @@ const MessageListItem = (props) => {
 
   return <li className={`chat_item ${msgDirection}`}>
     <div className='chat_item_avatar'>
+      <h3 className="chat_item_avatarName">{userName}</h3>
       <div className={`chat_item_avatarImg ${avatar}`}/>
       <h3
         className='chat_item_timestamp '>
