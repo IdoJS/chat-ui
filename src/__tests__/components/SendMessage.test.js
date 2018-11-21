@@ -3,13 +3,12 @@ import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
 
 import SendMessage from '../../../src/components/SendMessage';
+import {MOCK_USER_NAME} from '../../__mocks__/mockData';
 
 describe('SendMessage component', () => {
 
-  const mockUserName = 'mockUserName';
-
   it('Should render the SendMessage view && isLoading is false', () => {
-    const wrapper = shallow(<SendMessage isLoading={false} userName={mockUserName}
+    const wrapper = shallow(<SendMessage isLoading={false} userName={MOCK_USER_NAME}
                                          onMessageSend={() => {
                                          }}
                                          onMessageTyping={() => {
@@ -38,7 +37,7 @@ describe('SendMessage component', () => {
   });
 
   it('Should render the SendMessage view && isLoading is true', () => {
-    const wrapper = shallow(<SendMessage isLoading={true} userName={mockUserName}
+    const wrapper = shallow(<SendMessage isLoading={true} userName={MOCK_USER_NAME}
                                          onMessageSend={() => {
                                          }}
                                          onMessageTyping={() => {
@@ -56,7 +55,7 @@ describe('SendMessage component', () => {
   it('Simulate send via button', (done) => {
     const msg = 'test';
 
-    const wrapper = shallow(<SendMessage isLoading={false} userName={mockUserName}
+    const wrapper = shallow(<SendMessage isLoading={false} userName={MOCK_USER_NAME}
                                          onMessageSend={(data) => {
                                            expect(data).toMatchObject({'text': msg});
                                            done();
@@ -85,7 +84,7 @@ describe('SendMessage component', () => {
   it('Simulate send via Enter Key', (done) => {
     const msg = 'test';
 
-    const wrapper = shallow(<SendMessage isLoading={false} userName={mockUserName}
+    const wrapper = shallow(<SendMessage isLoading={false} userName={MOCK_USER_NAME}
                                          onMessageSend={(data) => {
                                            expect(data).toMatchObject({'text': msg});
                                            done();

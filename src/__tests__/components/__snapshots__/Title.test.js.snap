@@ -5,6 +5,6 @@ exports[`Title component SnapShot rendering ChatRoom 1`] = `
   className="secondary_title"
 >
   Hello 
-  mockUserName
+  mock_user_name
 </h1>
 `;

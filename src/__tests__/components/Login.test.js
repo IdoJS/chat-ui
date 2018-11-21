@@ -3,12 +3,9 @@ import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
 
 import Login from '../../../src/components/Login';
+import {MOCK_USER_NAME, MOCK_AVATAR_CLASS} from '../../__mocks__/mockData';
 
 describe('Login component', () => {
-
-  const textValue = 'mockTest';
-  const radioValue = 'mockAvatar';
-
   const ev = {
     preventDefault: () => {
     }
@@ -16,14 +13,14 @@ describe('Login component', () => {
 
   const evUserName = Object.assign({}, ev, {
     target: {
-      value: textValue,
+      value: MOCK_USER_NAME,
       name: 'userName'
     }
   });
 
   const evAvatar = Object.assign({}, ev, {
     target: {
-      id: radioValue,
+      id: MOCK_AVATAR_CLASS,
       checked: true
     }
   });
@@ -31,8 +28,8 @@ describe('Login component', () => {
   it('Should render the login view', (done) => {
 
     const wrapper = shallow(<Login onUserCreate={({userName, avatarClass}) => {
-      expect(userName).toEqual(textValue);
-      expect(avatarClass).toEqual(radioValue);
+      expect(userName).toEqual(MOCK_USER_NAME);
+      expect(avatarClass).toEqual(MOCK_AVATAR_CLASS);
       done()
     }}/>);
 

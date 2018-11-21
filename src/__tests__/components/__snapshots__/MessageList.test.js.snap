@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessageList component SnapShot rendering MessageList 1`] = `
+<ul
+  className="chat_box"
+  id="chat_container"
+/>
+`;

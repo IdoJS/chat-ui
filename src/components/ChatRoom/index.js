@@ -41,7 +41,7 @@ class ChatRoom extends React.PureComponent {
   componentDidMount() {
     socketObserver.subscribe({
       identifier: '', o: function (data) {
-        this.props.updateMessageList(data);
+        this.props.updateMessageList && this.props.updateMessageList(data);
       }.bind(this)
     });
   }
@@ -75,6 +75,9 @@ ChatRoom.defaultProps = {
     chatArr: [],
     typingArr: [],
     timeout: false
+  },
+  updateMessageList: () => {
+    console.warn('Please implement updateMessageList');
   }
 };
 
@@ -85,7 +88,8 @@ ChatRoom.propTypes = {
     chatArr: PropTypes.array.isRequired,
     typingArr: PropTypes.array.isRequired,
     timeout: PropTypes.bool.isRequired
-  }).isRequired
+  }).isRequired,
+  updateMessageList: PropTypes.func.isRequired
 };
 
 export default ChatRoom;

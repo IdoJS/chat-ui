@@ -17,7 +17,7 @@ class Login extends React.PureComponent {
   }
 
   render() {
-    return <form className="form">
+    return <form className="form" key={0}>
       <h1 className="primary_title">Login</h1>
       <div className="form_row">
         <h2 className="secondary_title">Please enter userName</h2>

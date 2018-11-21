@@ -7,12 +7,12 @@ import ChatRoom from '../../../src/components/ChatRoom';
 import Title from '../../../src/components/Title';
 import SendMessage from '../../../src/components/SendMessage';
 import MessageList from '../../../src/components/MessageList';
-
+import {MOCK_USER_NAME, MOCK_AVATAR_CLASS} from '../../__mocks__/mockData';
 describe('ChatRoom component', () => {
 
   beforeAll(()=>{
-    setAvatarClass('MockAvatar');
-    setUserName('MockUser');
+    setAvatarClass(MOCK_USER_NAME);
+    setUserName(MOCK_AVATAR_CLASS);
   });
 
   it('Should render the ChatRoom view', () => {

@@ -1,4 +1,5 @@
 import socketObserver from '../../../src/utils/socketObserver';
+import {MOCK_SOCKET_REQ} from '../../__mocks__/mockData';
 
 describe('Test socketObserver', () => {
   const identifier = 'mockSocket';
@@ -30,17 +31,15 @@ describe('Test socketObserver', () => {
   });
 
   it('Check send via socket', (done) => {
-    const request = {text: 'mockText', avatar: 'mockAvatar'};
-
     socketObserver.subscribe({
       identifier,
       o: (response) => {
-        expect(response).toMatchObject(request);
+        expect(response).toMatchObject(MOCK_SOCKET_REQ);
         done();
       }
     });
 
-    socketObserver.send(request);
+    socketObserver.send(MOCK_SOCKET_REQ);
   });
 
 });
