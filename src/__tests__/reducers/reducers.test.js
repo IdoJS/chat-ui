@@ -42,9 +42,9 @@ describe('Test chatReducer', () => {
 
   });
 
-  it('ActionTypes.MESSAGE_RECEIVED state', () => {
+  it('ActionTypes.MESSAGE_TYPING_ADD state', () => {
     const nextState = chatReducer(undefined, {
-      type: ActionTypes.MESSAGE_TYPING,
+      type: ActionTypes.MESSAGE_TYPING_ADD,
       payload : {
         data : {
           userName : MOCK_USER_NAME,
@@ -55,6 +55,22 @@ describe('Test chatReducer', () => {
 
     expect(nextState.loading).toBeFalsy();
     expect(nextState.typingArr).toHaveLength(1);
+
+  });
+
+  it('ActionTypes.MESSAGE_TYPING_REMOVE state', () => {
+    const nextState = chatReducer(undefined, {
+      type: ActionTypes.MESSAGE_TYPING_REMOVE,
+      payload : {
+        data : {
+          userName : MOCK_USER_NAME,
+          isTyping : false
+        }
+      }
+    });
+
+    expect(nextState.loading).toBeFalsy();
+    expect(nextState.typingArr).toHaveLength(0);
 
   });
 });

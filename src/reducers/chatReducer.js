@@ -34,18 +34,25 @@ const chatReducer = (state = chatReducerInitializeState, action) => {
       };
       break;
 
-    case ActionTypes.MESSAGE_TYPING:
+    case ActionTypes.MESSAGE_TYPING_ADD:
       const typingUserIndex = state.typingArr.findIndex(typing => typing.data.userName === action.payload.data.userName);
-      let typingArr = [...state.typingArr];
-      if (action.payload.data.isTyping) {
-        typingUserIndex === -1 ? typingArr.push(action.payload) : null;
-      } else {
-        typingArr.splice(typingUserIndex, 1);
-      }
+      const typingArrAdd = [...state.typingArr];
+      typingUserIndex === -1 ? typingArrAdd.push(action.payload) : null;
 
       nextState = {
         ...state,
-        typingArr,
+        typingArr: typingArrAdd,
+        loading: false
+
+      };
+      break;
+
+    case ActionTypes.MESSAGE_TYPING_REMOVE:
+      const typingArrRemove = state.typingArr.filter(typing => typing.data.userName !== action.payload.data.userName);
+
+      nextState = {
+        ...state,
+        typingArr: typingArrRemove,
         loading: false
 
       };

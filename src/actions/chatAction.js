@@ -18,9 +18,18 @@ export const messageReceived = (data) => {
   };
 };
 
-export const messageTyping = (data) => {
+export const messageTypingAdd = (data) => {
   return {
-    type: ActionTypes.MESSAGE_TYPING,
+    type: ActionTypes.MESSAGE_TYPING_ADD,
+    payload: {
+      data
+    }
+  };
+};
+
+export const messageTypingRemove = (data) => {
+  return {
+    type: ActionTypes.MESSAGE_TYPING_REMOVE,
     payload: {
       data
     }

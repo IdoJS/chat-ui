@@ -54,7 +54,11 @@ class ChatRoom extends React.Component {
       identifier: this,
       o: function (data) {
         if (data.requestType === RequestTypes.REQUEST_TYPING) {
-          this.props.updateMessageTyping && this.props.updateMessageTyping(data)
+          if(data.isTyping){
+            this.props.updateMessageTypingAdd && this.props.updateMessageTypingAdd(data)
+          } else {
+            this.props.updateMessageTypingRemove && this.props.updateMessageTypingRemove(data)
+          }
         } else {
           this.props.updateMessageList(data);
         }
@@ -103,8 +107,11 @@ ChatRoom.defaultProps = {
   updateMessageList: () => {
     console.warn('Please implement updateMessageList');
   },
-  updateMessageTyping: () => {
-    console.warn('Please implement updateMessageTyping');
+  updateMessageTypingAdd: () => {
+    console.warn('Please implement updateMessageTypingAdd');
+  },
+  updateMessageTypingRemove: () => {
+    console.warn('Please implement updateMessageTypingRemove');
   }
 };
 
@@ -116,7 +123,8 @@ ChatRoom.propTypes = {
     timeout: PropTypes.bool.isRequired
   }).isRequired,
   updateMessageList: PropTypes.func.isRequired,
-  updateMessageTyping : PropTypes.func.isRequired
+  updateMessageTypingAdd : PropTypes.func.isRequired,
+  updateMessageTypingRemove : PropTypes.func.isRequired
 };
 
 export default ChatRoom;
