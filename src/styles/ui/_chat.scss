@@ -1,0 +1,77 @@
+// chat
+
+.chat {
+  position: fixed;
+  border: 1px solid $chatRoomBColor;
+  bottom: 0;
+  padding: $spacing;
+  margin: $spacing;
+  &_title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 300px;
+  }
+  &_box {
+    height: 300px;
+    overflow-y: auto;
+    background-color: $chatBColor;
+  }
+  &_send {
+    display: flex;
+    padding-top: $spacing;
+
+    &_input {
+      margin-right: $spacing;
+    }
+  }
+  &_item {
+    padding: $spacing;
+    display: flex;
+    flex-direction: column;
+
+    &_default {
+      flex-direction: row-reverse;
+    }
+
+    &_avatar {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &_text {
+      border-radius: 5px;
+      padding: 0 $spacing;
+      word-break: break-all;
+      margin: 0 $spacing;
+      flex-grow: 1;
+    }
+    &_img {
+      flex-shrink: 0;
+      margin: auto;
+    }
+    &_msg {
+      display: flex;
+      max-width: 300px;
+      &_default {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &_text_header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: bold;
+      padding-left: $spacing;
+      margin-bottom: -($spacing*2);
+    }
+
+    &_user_name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 200px;
+    }
+  }
+}

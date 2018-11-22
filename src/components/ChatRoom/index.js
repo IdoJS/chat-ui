@@ -77,7 +77,7 @@ class ChatRoom extends React.Component {
   }
 
   render() {
-    return (<div className='chat_box_container'>
+    return (<div className='chat'>
       <Title userName={this.currentUserName}
              currentUser={this.currentUserName}/>
 

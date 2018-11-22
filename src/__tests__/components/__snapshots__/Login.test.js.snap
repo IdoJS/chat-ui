@@ -2,95 +2,118 @@
 
 exports[`Login component SnapShot rendering Login 1`] = `
 <form
-  className="form"
+  className="ui form"
 >
   <h1
-    className="primary_title"
+    className="ui large header"
   >
     Login
   </h1>
   <div
-    className="form_row"
+    class="field"
   >
-    <h2
-      className="secondary_title"
-    >
+    <label>
       Please enter userName
-    </h2>
-    <input
-      className="primary_input"
-      name="userName"
-      onChange={[Function]}
-      type="text"
-      value=""
-    />
-  </div>
-  <div
-    className="form_row"
-  >
-    <h2
-      className="secondary_title"
-    >
-      Please choose avatar
-    </h2>
+    </label>
     <div
-      className="avatar_radio_group"
-      onChange={[Function]}
+      class="ui left icon input"
     >
       <input
-        className="avatar_radio"
-        id="avatar_img01"
-        name="avatar"
-        type="radio"
+        className="ui input"
+        name="userName"
+        onChange={[Function]}
+        placeholder="Type name here..."
+        type="text"
+        value=""
       />
-       
-      <div
-        className="avatar_img01"
-      />
-      <input
-        className="avatar_radio"
-        id="avatar_img02"
-        name="avatar"
-        type="radio"
-      />
-       
-      <div
-        className="avatar_img02"
-      />
-      <input
-        className="avatar_radio"
-        id="avatar_img03"
-        name="avatar"
-        type="radio"
-      />
-       
-      <div
-        className="avatar_img03"
-      />
-      <input
-        className="avatar_radio"
-        id="avatar_img04"
-        name="avatar"
-        type="radio"
-      />
-       
-      <div
-        className="avatar_img04"
-      />
-      <input
-        className="avatar_radio"
-        id="avatar_img05"
-        name="avatar"
-        type="radio"
-      />
-       
-      <div
-        className="avatar_img05"
+      <i
+        class="user circle icon"
       />
     </div>
   </div>
+  <div
+    class="field"
+  >
+    <label>
+      Please choose avatar
+    </label>
+    <div
+      className="ui list"
+    >
+      <ul
+        className="form_radio_group"
+        onChange={[Function]}
+      >
+        <li
+          className="ui image label"
+        >
+          <input
+            className="radio"
+            id="avatar_img01"
+            name="avatar"
+            type="radio"
+          />
+          <div
+            className="avatar avatar_img01"
+          />
+        </li>
+        <li
+          className="ui image label"
+        >
+          <input
+            className="radio"
+            id="avatar_img02"
+            name="avatar"
+            type="radio"
+          />
+          <div
+            className="avatar avatar_img02"
+          />
+        </li>
+        <li
+          className="ui image label"
+        >
+          <input
+            className="radio"
+            id="avatar_img03"
+            name="avatar"
+            type="radio"
+          />
+          <div
+            className="avatar avatar_img03"
+          />
+        </li>
+        <li
+          className="ui image label"
+        >
+          <input
+            className="radio"
+            id="avatar_img04"
+            name="avatar"
+            type="radio"
+          />
+          <div
+            className="avatar avatar_img04"
+          />
+        </li>
+        <li
+          className="ui image label"
+        >
+          <input
+            className="radio"
+            id="avatar_img05"
+            name="avatar"
+            type="radio"
+          />
+          <div
+            className="avatar avatar_img05"
+          />
+        </li>
+      </ul>
+    </div>
+  </div>
   <button
-    className="primary_button big"
+    className="ui primary button"
     onClick={[Function]}
   >
     Submit

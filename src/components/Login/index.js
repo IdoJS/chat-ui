@@ -17,23 +17,36 @@ class Login extends React.PureComponent {
   }
 
   render() {
-    return <form className="form" key={0}>
-      <h1 className="primary_title">Login</h1>
-      <div className="form_row">
-        <h2 className="secondary_title">Please enter userName</h2>
-        <input type="text" className="primary_input" name="userName" value={this.state.userName} onChange={this.onTextChange}/>
-      </div>
-      <div className="form_row">
-        <h2 className="secondary_title">Please choose avatar</h2>
-        <div className="avatar_radio_group" onChange={this.onAvatarChange.bind(this)}>
-          <input type="radio" className="avatar_radio" name="avatar" id="avatar_img01"/> <div className="avatar_img01"></div>
-          <input type="radio" className="avatar_radio" name="avatar" id="avatar_img02"/> <div className="avatar_img02"></div>
-          <input type="radio" className="avatar_radio" name="avatar" id="avatar_img03"/> <div className="avatar_img03"></div>
-          <input type="radio" className="avatar_radio" name="avatar" id="avatar_img04"/> <div className="avatar_img04"></div>
-          <input type="radio" className="avatar_radio" name="avatar" id="avatar_img05"/> <div className="avatar_img05"></div>
+  const radios =  [...Array(5).keys()].map((index) => (<li key={index} className='ui image label'>
+    <input type='radio' className='radio' name='avatar' id={`avatar_img0${index+1}`}/>
+    <div className={`avatar avatar_img0${index+1}`}></div>
+  </li>));
+
+    return <form className='ui form' key={0}>
+      <h1 className='ui large header'>Login</h1>
+      <div class='field'>
+        <label>Please enter userName</label>
+        <div class='ui left icon input'>
+          <input type='text'
+                 className='ui input'
+                 name='userName'
+                 placeholder='Type name here...'
+                 value={this.state.userName}
+                 onChange={this.onTextChange}/>
+          <i class='user circle icon'></i>
         </div>
       </div>
-      <button className="primary_button big" onClick={this.submit}>Submit</button>
+
+      <div class='field'>
+        <label>Please choose avatar</label>
+        <div className='ui list'>
+          <ul className='form_radio_group' onChange={this.onAvatarChange.bind(this)}>
+            {radios}
+          </ul>
+        </div>
+      </div>
+
+      <button className='ui primary button' onClick={this.submit}>Submit</button>
     </form>
   }
 

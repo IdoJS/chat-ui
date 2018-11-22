@@ -12,7 +12,7 @@ describe('MessageListItem component', () => {
     const p = wrapper.find('p');
 
     expect(p.text()).toEqual(MOCK_SELF_MESSAGE.text);
-    expect(wrapper.hasClass('my_msg')).toBeTruthy();
+    expect(p.hasClass('chat_item_msg_user')).toBeTruthy();
 
   });
 
@@ -22,7 +22,7 @@ describe('MessageListItem component', () => {
     const p = wrapper.find('p');
 
     expect(p.text()).toEqual(MOCK_OTHER_MESSAGE.text);
-    expect(wrapper.hasClass('default_msg')).toBeTruthy();
+    expect(p.hasClass('chat_item_msg_default')).toBeTruthy();
 
   });
 

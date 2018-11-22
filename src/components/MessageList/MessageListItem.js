@@ -6,22 +6,22 @@ const MessageListItem = (props) => {
   const {data, currentUser} = props;
   const {text, userName, timestamp, avatar} = data;
   const currentTimeArr = splitTimestamp(timestamp);
-  const msgDirection = userName === currentUser ? 'my_msg' : 'default_msg';
+  const isCurrentUserMsg = userName === currentUser;
 
-  return <li className={`chat_item ${msgDirection}`}>
-    <div className='chat_item_avatar'>
-      <h3 className="chat_item_avatarName">{userName}</h3>
-      <div className={`chat_item_avatarImg ${avatar}`}/>
-      <h3
-        className='chat_item_timestamp '>
-        <div>{currentTimeArr[1]}</div>
-        <div>{currentTimeArr[0]}</div>
-      </h3>
+  return <li className='chat_item'>
+    <div className={`chat_item_text_header chat_item${isCurrentUserMsg ? '_user' : '_default'}`}>
+      <h3 className='chat_item_user_name'>{userName}</h3>
+      <h3>{currentTimeArr[1]}</h3>
     </div>
-    <p className={`chat_item_text ${msgDirection}`}>{text}</p>
+    <div className={`ui message chat_item_msg chat_item_msg${isCurrentUserMsg ? '_user' : '_default'}`}>
+      <div></div>
+      <div className={`chat_item_img avatar ${avatar}`}/>
+      <div className={`chat_item_text chat_item_msg chat_item_msg${isCurrentUserMsg ? '_user' : '_default'}`}>
+        <p className={`ui ${isCurrentUserMsg ? 'left pointing olive' : 'right pointing teal'} chat_item_msg${isCurrentUserMsg ? '_user' : '_default'} basic label`}>{text}</p>
+      </div>
+    </div>
   </li>
 };
-
 
 MessageListItem.propTypes = {
   currentUser: PropTypes.string.isRequired,
@@ -34,10 +34,10 @@ MessageListItem.propTypes = {
 
 MessageListItem.defaultProps = {
   currentUser: '',
-  data : {
-    text : '',
+  data: {
+    text: '',
     userName: '',
-    timestamp : Date.now()
+    timestamp: Date.now()
   }
 };
 

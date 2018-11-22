@@ -2,34 +2,36 @@
 
 exports[`MessageListItem component SnapShot rendering MessageListItem 1`] = `
 <li
-  className="chat_item my_msg"
+  className="chat_item"
 >
   <div
-    className="chat_item_avatar"
+    className="chat_item_text_header chat_item_user"
   >
     <h3
-      className="chat_item_avatarName"
+      className="chat_item_user_name"
     >
       mock_user_name
     </h3>
-    <div
-      className="chat_item_avatarImg mock_avatar_class"
-    />
-    <h3
-      className="chat_item_timestamp "
-    >
-      <div>
-        00:00:00
-      </div>
-      <div>
-        1970-01-01
-      </div>
+    <h3>
+      00:00:00
     </h3>
   </div>
-  <p
-    className="chat_item_text my_msg"
+  <div
+    className="ui message chat_item_msg chat_item_msg_user"
   >
-    mock_text
-  </p>
+    <div />
+    <div
+      className="chat_item_img avatar mock_avatar_class"
+    />
+    <div
+      className="chat_item_text chat_item_msg chat_item_msg_user"
+    >
+      <p
+        className="ui left pointing olive chat_item_msg_user basic label"
+      >
+        mock_text
+      </p>
+    </div>
+  </div>
 </li>
 `;

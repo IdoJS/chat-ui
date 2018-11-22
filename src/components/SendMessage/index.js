@@ -52,12 +52,17 @@ class SendMessage extends React.PureComponent {
 
   render() {
     return (
-      <div className='send_box' key={0}>
-        <input className='primary_input' disabled={this.props.isLoading} name='inputMessage' type='input'
-               onKeyPress={this.sendEnter}
-               onChange={this.onTextChange} placeholder={this.props.isLoading ? 'Please wait...' : 'Type message...'}
-               value={this.state.inputMessage}/>
-        <button className='secondary_button' disabled={this.state.inputMessage.length === 0} onClick={this.sendButton}>
+      <div className='chat_send' key={0}>
+        <div className={`ui icon input ${this.props.isLoading ? 'loading' : ''} chat_send_input`}>
+          <input disabled={this.props.isLoading}
+                 name='inputMessage' type='input'
+                 onKeyPress={this.sendEnter}
+                 onChange={this.onTextChange} placeholder={this.props.isLoading ? 'Please wait...' : 'Type message...'}
+                 value={this.state.inputMessage}/>
+          {this.props.isLoading ? <i className='search icon'></i> : <i className='wechat icon'></i>}
+        </div>
+
+        <button className='ui primary button' disabled={this.state.inputMessage.length === 0} onClick={this.sendButton}>
           send
         </button>
       </div>

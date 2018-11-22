@@ -9,7 +9,7 @@ describe('Title component', () => {
   it('Should render the Title view', () => {
 
     const wrapper = shallow(<Title userName={MOCK_USER_NAME}/>);
-    const title = wrapper.find('h1');
+    const title = wrapper.find('h2');
 
     expect(title).toHaveLength(1);
 

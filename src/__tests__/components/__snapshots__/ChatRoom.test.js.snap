@@ -2,14 +2,14 @@
 
 exports[`ChatRoom component SnapShot rendering ChatRoom 1`] = `
 <div
-  className="chat_box_container"
+  className="chat"
 >
-  <h1
-    className="secondary_title"
+  <h2
+    className="ui dividing header chat_title"
   >
     Hello 
     mock_avatar_class
-  </h1>
+  </h2>
   <ul
     className="chat_box"
     id="chat_container"
@@ -17,20 +17,26 @@ exports[`ChatRoom component SnapShot rendering ChatRoom 1`] = `
      
   </ul>
   <div
-    className="send_box"
+    className="chat_send"
   >
-    <input
-      className="primary_input"
-      disabled={false}
-      name="inputMessage"
-      onChange={[Function]}
-      onKeyPress={[Function]}
-      placeholder="Type message..."
-      type="input"
-      value=""
-    />
+    <div
+      className="ui icon input  chat_send_input"
+    >
+      <input
+        disabled={false}
+        name="inputMessage"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        placeholder="Type message..."
+        type="input"
+        value=""
+      />
+      <i
+        className="wechat icon"
+      />
+    </div>
     <button
-      className="secondary_button"
+      className="ui primary button"
       disabled={true}
       onClick={[Function]}
     >

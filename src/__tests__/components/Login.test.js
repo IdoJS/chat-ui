@@ -34,7 +34,7 @@ describe('Login component', () => {
     }}/>);
 
     const input = wrapper.find('input[type="text"]');
-    const radioGroup = wrapper.find('div.avatar_radio_group');
+    const radioGroup = wrapper.find('ul.form_radio_group');
     const radioButtons = radioGroup.find('input');
     const btn = wrapper.find('button');
 

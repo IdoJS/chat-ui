@@ -2,15 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Title = (props) => {
-  return <h1 key={0} className="secondary_title">Hello {props.userName}</h1>;
+  return <h2 className='ui dividing header chat_title'>
+    Hello {props.userName}
+  </h2>;
+
 };
 
+
 Title.propTypes = {
-  userName : PropTypes.string.isRequired
+  userName: PropTypes.string.isRequired
 };
 
 Title.defaultProps = {
-  userName : ''
+  userName: ''
 };
 
 export default Title

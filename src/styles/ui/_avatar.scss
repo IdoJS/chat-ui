@@ -1,0 +1,12 @@
+// Avatar, generating icons for images
+.avatar {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @each $avatarName, $avatarUrl in $avatarList {
+    &_#{$avatarName} {
+      background-image: url($avatarUrl);
+    }
+  }
+}
