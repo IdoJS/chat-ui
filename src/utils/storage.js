@@ -10,10 +10,10 @@ export const getUserName = () => {
 };
 
 export const setAvatarClass = (avatar) => {
-  return storage.setItem('avatarClass', avatar);
+  storage.setItem('avatarClass', avatar);
 };
 
 
 export const setUserName = (userName) => {
-  return storage.setItem('userName', userName);
+  storage.setItem('userName', userName);
 };
