@@ -83,7 +83,7 @@ class ChatRoom extends React.Component {
   render() {
     return (<div className='chat'>
       <Title userName={this.currentUserName}
-             currentUser={this.currentUserName}/>
+             avatarClass={this.currentAvatarClass}/>
 
       <MessageList chatData={this.props.chatData}
                    currentUser={this.currentUserName}/>

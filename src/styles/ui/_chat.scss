@@ -11,6 +11,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     width: 300px;
+    &_img{
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: ($spacing*2);
+    }
   }
   &_box {
     height: 300px;

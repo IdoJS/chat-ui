@@ -27,7 +27,7 @@ exports[`MessageListItem component SnapShot rendering MessageListItem 1`] = `
       className="chat_item_text chat_item_msg chat_item_msg_user"
     >
       <p
-        className="ui left pointing olive chat_item_msg_user basic label"
+        className="ui left pointing blue chat_item_msg_user basic label"
       >
         mock_text
       </p>

@@ -2,9 +2,17 @@
 
 exports[`Title component SnapShot rendering ChatRoom 1`] = `
 <h2
-  className="ui dividing header chat_title"
+  className="ui dividing header chat_title blue"
 >
-  Hello 
-  mock_user_name
+  <div
+    className="content"
+  >
+    <span
+      className="chat_title_img avatar "
+    />
+    <span>
+      mock_user_name
+    </span>
+  </div>
 </h2>
 `;

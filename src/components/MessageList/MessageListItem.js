@@ -17,7 +17,7 @@ const MessageListItem = (props) => {
       <div></div>
       <div className={`chat_item_img avatar ${avatar}`}/>
       <div className={`chat_item_text chat_item_msg chat_item_msg${isCurrentUserMsg ? '_user' : '_default'}`}>
-        <p className={`ui ${isCurrentUserMsg ? 'left pointing olive' : 'right pointing teal'} chat_item_msg${isCurrentUserMsg ? '_user' : '_default'} basic label`}>{text}</p>
+        <p className={`ui ${isCurrentUserMsg ? 'left pointing blue' : 'right pointing teal'} chat_item_msg${isCurrentUserMsg ? '_user' : '_default'} basic label`}>{text}</p>
       </div>
     </div>
   </li>

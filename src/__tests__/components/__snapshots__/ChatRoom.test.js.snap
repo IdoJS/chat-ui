@@ -5,10 +5,18 @@ exports[`ChatRoom component SnapShot rendering ChatRoom 1`] = `
   className="chat"
 >
   <h2
-    className="ui dividing header chat_title"
+    className="ui dividing header chat_title blue"
   >
-    Hello 
-    mock_avatar_class
+    <div
+      className="content"
+    >
+      <span
+        className="chat_title_img avatar mock_user_name"
+      />
+      <span>
+        mock_avatar_class
+      </span>
+    </div>
   </h2>
   <ul
     className="chat_box"
