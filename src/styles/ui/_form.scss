@@ -1,11 +1,5 @@
 .form {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   padding: ($spacing*4);
-  background-color: $formBColor;
   width: 500px;
   display: flex;
   flex-direction: column;

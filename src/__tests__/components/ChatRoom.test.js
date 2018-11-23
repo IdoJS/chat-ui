@@ -1,7 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import renderer from 'react-test-renderer';
-import {setAvatarClass, setUserName} from '../../utils/storage';
+import {setAvatarClass, setUserName, setUserId} from '../../utils/storage';
 
 import ChatRoom from '../../../src/components/ChatRoom';
 import Title from '../../../src/components/Title';
@@ -13,6 +13,7 @@ describe('ChatRoom component', () => {
   beforeAll(()=>{
     setAvatarClass(MOCK_USER_NAME);
     setUserName(MOCK_AVATAR_CLASS);
+    setUserId();
   });
 
   it('Should render the ChatRoom view', () => {

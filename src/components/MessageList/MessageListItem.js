@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import {splitTimestamp} from '../../utils/formats';
 
 const MessageListItem = (props) => {
-  const {data, currentUser} = props;
-  const {text, userName, timestamp, avatar} = data;
+  const {data, currentUser, currentUserId} = props;
+  const {text, userName, timestamp, avatar, userId} = data;
   const currentTimeArr = splitTimestamp(timestamp);
-  const isCurrentUserMsg = userName === currentUser;
+  const isCurrentUserMsg = userId === currentUserId;
 
   return <li className='chat_item'>
     <div className={`chat_item_text_header chat_item${isCurrentUserMsg ? '_user' : '_default'}`}>
@@ -17,7 +17,8 @@ const MessageListItem = (props) => {
       <div></div>
       <div className={`chat_item_img avatar ${avatar}`}/>
       <div className={`chat_item_text chat_item_msg chat_item_msg${isCurrentUserMsg ? '_user' : '_default'}`}>
-        <p className={`ui ${isCurrentUserMsg ? 'left pointing blue' : 'right pointing teal'} chat_item_msg${isCurrentUserMsg ? '_user' : '_default'} basic label`}>{text}</p>
+        <p
+          className={`ui ${isCurrentUserMsg ? 'left pointing blue' : 'right pointing teal'} chat_item_msg${isCurrentUserMsg ? '_user' : '_default'} basic label`}>{text}</p>
       </div>
     </div>
   </li>
@@ -25,6 +26,7 @@ const MessageListItem = (props) => {
 
 MessageListItem.propTypes = {
   currentUser: PropTypes.string.isRequired,
+  currentUserId: PropTypes.string.isRequired,
   data: PropTypes.shape({
     text: PropTypes.string.isRequired,
     userName: PropTypes.string.isRequired,

@@ -32,27 +32,50 @@ class SocketObserver {
     });
   }
 
+  /**
+   * Add observer
+   * @param identifier
+   * @param o
+   * @returns {SocketObserver}
+   */
   subscribe({identifier, o}) {
     observers.push({identifier, o});
     return this;
   }
 
+  /**
+   * Remove observer
+   * @param identifier
+   * @returns {SocketObserver}
+   */
   unSubscribe({identifier}) {
     observers = observers.filter(ob => ob.identifier !== identifier);
     return this;
   }
 
+  /**
+   * Make socket request
+   * @param requestData
+   * @returns {SocketObserver}
+   */
   send(requestData) {
     window.socket.emit(SOCKET_EVENT, Object.assign(requestData, {id: SOCKET_IDENTIFIER}));
     return this;
   }
 
+  /**
+   * Remove all observers
+   */
   clear() {
     observers = [];
   }
 
+  /**
+   * Get observer list
+   * @returns {Array}
+   */
   getObservers() {
-    return observers;
+    return [...observers];
   }
 }
 

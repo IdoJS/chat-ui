@@ -8,7 +8,7 @@ import Title from '../Title';
 import SendMessage from '../SendMessage';
 import MessageList from '../MessageList';
 
-import {getUserName, getAvatarClass} from '../../utils/storage';
+import {getUserName, getAvatarClass, getUserId} from '../../utils/storage';
 
 class ChatRoom extends React.Component {
 
@@ -17,17 +17,19 @@ class ChatRoom extends React.Component {
 
     this.currentUserName = getUserName();
     this.currentAvatarClass = getAvatarClass();
+    this.currentUserId = getUserId();
 
     this.onMessageSend = this.onMessageSend.bind(this);
     this.onMessageTyping = this.onMessageTyping.bind(this);
 
-
+    this.observer = this.observer.bind(this);
   }
 
   onMessageSend({text}) {
     const data = {
       text,
       userName: this.currentUserName,
+      userId : this.currentUserId,
       timestamp: Date.now(),
       avatar: this.currentAvatarClass,
       isTyping: false,
@@ -42,6 +44,7 @@ class ChatRoom extends React.Component {
     socketObserver.send({
       text: '...',
       userName: this.currentUserName,
+      userId : this.currentUserId,
       timestamp: Date.now(),
       avatar: this.currentAvatarClass,
       isTyping,
@@ -52,18 +55,20 @@ class ChatRoom extends React.Component {
   componentDidMount() {
     socketObserver.subscribe({
       identifier: this,
-      o: function (data) {
-        if (data.requestType === RequestTypes.REQUEST_TYPING) {
-          if(data.isTyping){
-            this.props.updateMessageTypingAdd && this.props.updateMessageTypingAdd(data)
-          } else {
-            this.props.updateMessageTypingRemove && this.props.updateMessageTypingRemove(data)
-          }
-        } else {
-          this.props.updateMessageList(data);
-        }
-      }.bind(this)
+      o: this.observer
     });
+  }
+
+  observer(data){
+    if (data.requestType === RequestTypes.REQUEST_TYPING) {
+      if(data.isTyping){
+        this.props.updateMessageTypingAdd && this.props.updateMessageTypingAdd(data)
+      } else {
+        this.props.updateMessageTypingRemove && this.props.updateMessageTypingRemove(data)
+      }
+    } else {
+      this.props.updateMessageList(data);
+    }
   }
 
   componentWillUnmount() {
@@ -86,7 +91,9 @@ class ChatRoom extends React.Component {
              avatarClass={this.currentAvatarClass}/>
 
       <MessageList chatData={this.props.chatData}
-                   currentUser={this.currentUserName}/>
+                   currentUser={this.currentUserName}
+                   currentUserId={this.currentUserId}
+      />
 
       <SendMessage isLoading={this.props.chatData.loading}
                    onMessageSend={this.onMessageSend}

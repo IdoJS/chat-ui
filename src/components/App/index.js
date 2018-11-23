@@ -1,5 +1,5 @@
 import React from 'react';
-import {getUserName, getAvatarClass, setAvatarClass, setUserName} from '../../utils/storage';
+import {getUserName, getAvatarClass, setAvatarClass, setUserName, setUserId} from '../../utils/storage';
 import Login from '../Login';
 import ChatRoom from '../../containers/ChatRoom';
 
@@ -19,6 +19,7 @@ class App extends React.PureComponent {
   onUserCreate({userName, avatarClass}) {
     setUserName(userName);
     setAvatarClass(avatarClass);
+    setUserId();
     this.setState({
       userName,
       avatarClass

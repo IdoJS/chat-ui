@@ -10,13 +10,13 @@ exports[`Login component SnapShot rendering Login 1`] = `
     Login
   </h1>
   <div
-    class="field"
+    className="field"
   >
     <label>
       Please enter userName
     </label>
     <div
-      class="ui left icon input"
+      className="ui left icon input"
     >
       <input
         className="ui input"
@@ -27,12 +27,12 @@ exports[`Login component SnapShot rendering Login 1`] = `
         value=""
       />
       <i
-        class="user circle icon"
+        className="user circle icon"
       />
     </div>
   </div>
   <div
-    class="field"
+    className="field"
   >
     <label>
       Please choose avatar

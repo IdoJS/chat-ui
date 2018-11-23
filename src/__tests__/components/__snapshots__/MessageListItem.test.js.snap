@@ -13,7 +13,7 @@ exports[`MessageListItem component SnapShot rendering MessageListItem 1`] = `
       mock_user_name
     </h3>
     <h3>
-      00:00:00
+      02:00:00
     </h3>
   </div>
   <div

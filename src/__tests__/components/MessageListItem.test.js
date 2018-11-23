@@ -8,7 +8,7 @@ import MessageListItem from '../../../src/components/MessageList/MessageListItem
 describe('MessageListItem component', () => {
   it('Should render the MessageListItem view', () => {
 
-    const wrapper = shallow(<MessageListItem currentUser={MOCK_USER_NAME} data={MOCK_SELF_MESSAGE}/>);
+    const wrapper = shallow(<MessageListItem currentUser={MOCK_USER_NAME} currentUserId={'0'} data={MOCK_SELF_MESSAGE}/>);
     const p = wrapper.find('p');
 
     expect(p.text()).toEqual(MOCK_SELF_MESSAGE.text);
@@ -18,7 +18,7 @@ describe('MessageListItem component', () => {
 
   it('Should render the MessageListItem view', () => {
 
-    const wrapper = shallow(<MessageListItem currentUser={MOCK_USER_NAME} data={MOCK_OTHER_MESSAGE}/>);
+    const wrapper = shallow(<MessageListItem currentUser={MOCK_USER_NAME} currentUserId={'0'} data={MOCK_OTHER_MESSAGE}/>);
     const p = wrapper.find('p');
 
     expect(p.text()).toEqual(MOCK_OTHER_MESSAGE.text);
@@ -27,7 +27,7 @@ describe('MessageListItem component', () => {
   });
 
   it('SnapShot rendering MessageListItem', () => {
-    const wrapper = shallow(<MessageListItem currentUser={MOCK_USER_NAME} data={MOCK_SELF_MESSAGE}/>);
+    const wrapper = shallow(<MessageListItem currentUser={MOCK_USER_NAME} currentUserId={'0'} data={MOCK_SELF_MESSAGE}/>);
     const tree = renderer.create(wrapper).toJSON();
     expect(tree).toMatchSnapshot();
   });

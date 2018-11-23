@@ -24,20 +24,20 @@ class Login extends React.PureComponent {
 
     return <form className='ui form' key={0}>
       <h1 className='ui large header'>Login</h1>
-      <div class='field'>
+      <div className='field'>
         <label>Please enter userName</label>
-        <div class='ui left icon input'>
+        <div className='ui left icon input'>
           <input type='text'
                  className='ui input'
                  name='userName'
                  placeholder='Type name here...'
                  value={this.state.userName}
                  onChange={this.onTextChange}/>
-          <i class='user circle icon'></i>
+          <i className='user circle icon'></i>
         </div>
       </div>
 
-      <div class='field'>
+      <div className='field'>
         <label>Please choose avatar</label>
         <div className='ui list'>
           <ul className='form_radio_group' onChange={this.onAvatarChange.bind(this)}>

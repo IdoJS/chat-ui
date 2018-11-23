@@ -1,8 +1,8 @@
 import ActionTypes from '../actionTypes';
 import {logPrint} from '../utils/logger';
-import {getUserName} from '../utils/storage';
+import {getUserId} from '../utils/storage';
 
-const currentUserName = getUserName();
+const currentUserId = getUserId();
 
 const chatReducerInitializeState = {
   loading: false,
@@ -29,15 +29,17 @@ const chatReducer = (state = chatReducerInitializeState, action) => {
       nextState = {
         ...state,
         chatArr: [...state.chatArr, action.payload],
-        typingArr: state.typingArr.filter(typing => typing.data.userName !== action.payload.data.userName),
-        loading: action.payload.userName === currentUserName
+        typingArr: state.typingArr.filter(typing => typing.data.userId !== action.payload.data.userId),
+        loading: action.payload.userId === currentUserId
       };
       break;
 
     case ActionTypes.MESSAGE_TYPING_ADD:
-      const typingUserIndex = state.typingArr.findIndex(typing => typing.data.userName === action.payload.data.userName);
+      const typingUserIndex = state.typingArr.findIndex(typing => typing.data.userId === action.payload.data.userId);
       const typingArrAdd = [...state.typingArr];
-      typingUserIndex === -1 ? typingArrAdd.push(action.payload) : null;
+      if (typingUserIndex === -1) {
+        typingArrAdd.push(action.payload);
+      }
 
       nextState = {
         ...state,
@@ -48,7 +50,7 @@ const chatReducer = (state = chatReducerInitializeState, action) => {
       break;
 
     case ActionTypes.MESSAGE_TYPING_REMOVE:
-      const typingArrRemove = state.typingArr.filter(typing => typing.data.userName !== action.payload.data.userName);
+      const typingArrRemove = state.typingArr.filter(typing => typing.data.userId !== action.payload.data.userId);
 
       nextState = {
         ...state,
