@@ -18,26 +18,30 @@ const guid = () => {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 };
 
+const STORAGE_AVATAR_CLASS = 'avatarClass';
+const STORAGE_USER_NAME = 'userName';
+const STORAGE_USER_ID = 'UserID';
+
 export const getAvatarClass = () => {
-  return storage.getItem('avatarClass');
+  return storage.getItem(STORAGE_AVATAR_CLASS);
 };
 
 export const getUserName = () => {
-  return storage.getItem('userName');
+  return storage.getItem(STORAGE_USER_NAME);
 };
 
 export const setAvatarClass = (avatar) => {
-  storage.setItem('avatarClass', avatar);
+  storage.setItem(STORAGE_AVATAR_CLASS, avatar);
 };
 
 export const setUserName = (userName) => {
-  storage.setItem('userName', userName);
+  storage.setItem(STORAGE_USER_NAME, userName);
 };
 
 export const getUserId = () => {
-  return storage.getItem('userId');
+  return storage.getItem(STORAGE_USER_ID);
 };
 
 export const setUserId = () => {
-  storage.setItem('userId', guid());
+  storage.setItem(STORAGE_USER_ID, guid());
 };

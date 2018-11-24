@@ -9,9 +9,7 @@ describe('MessageList component', () => {
   it('Should render the MessageList view', () => {
 
     const wrapper = shallow(<MessageList currentUser={MOCK_USER_NAME} currentUserId={'0'} chatData={MOCK_CHAT_DATA_INIT}/>);
-    const li = wrapper.find('li');
-
-    expect(li).toHaveLength(0);
+    expect(wrapper.find('.chat_box')).toHaveLength(1);
 
   });
 

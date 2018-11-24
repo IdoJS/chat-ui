@@ -12,13 +12,10 @@ describe('App component', () => {
     global.localStorage.clear();
   });
 
-
   it('Should render the login view when storage is empty', () =>{
     const wrapper = shallow(<App/>);
     const child = wrapper.find(Login);
     expect(child).toHaveLength(1);
-
-
   });
 
   it('SnapShot rendering Login', () => {

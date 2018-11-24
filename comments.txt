@@ -1,9 +1,32 @@
 Add your general design and decision comments here:
 
+I've choose to use Redux to manage the application states,
+All chat message history stored in Redux-Store.
 
+Components structure:
+---------------------
+App{
+    Login
+    ChatRoom {
+        Title
+        MessageList {
+            MessageListItem
+        }
+        SendMessage
+    }
+}
 
+Login - set chat user (avatar, name, id).
+Title - show the userName and Avatar.
+MessageListItem - show chat massages (text, timestamp, userName, avatar).
 
+Store:
+------
+Redux update the store base on message received from socketObserver
 
+Service:
+--------
+socketObserver - simple observer pattern to monitor the socket communication.
 
 Feedback regarding this exam is always welcomed.
 What did you like? What didn't you like? What was missing?

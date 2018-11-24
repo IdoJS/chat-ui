@@ -25,13 +25,16 @@ describe('Login component', () => {
     }
   });
 
-  it('Should render the login view', (done) => {
-
-    const wrapper = shallow(<Login onUserCreate={({userName, avatarClass}) => {
-      expect(userName).toEqual(MOCK_USER_NAME);
-      expect(avatarClass).toEqual(MOCK_AVATAR_CLASS);
-      done()
+  it('Should render the login view', () => {
+    const wrapper = shallow(<Login onUserCreate={() => {
     }}/>);
+    const form = wrapper.find('.form');
+    expect(form).toHaveLength(1);
+  });
+
+  it('Test onUserCreate', () => {
+    const onUserCreate = jest.fn();
+    const wrapper = shallow(<Login onUserCreate={onUserCreate}/>);
 
     const input = wrapper.find('input[type="text"]');
     const radioGroup = wrapper.find('ul.form_radio_group');
@@ -45,6 +48,8 @@ describe('Login component', () => {
     radioGroup.simulate('change', evAvatar);
 
     btn.simulate('click', ev);
+
+    expect(onUserCreate).toHaveBeenCalledWith({userName: MOCK_USER_NAME, avatarClass: MOCK_AVATAR_CLASS})
   });
 
   it('SnapShot rendering Login', () => {

@@ -29,7 +29,7 @@ class ChatRoom extends React.Component {
     const data = {
       text,
       userName: this.currentUserName,
-      userId : this.currentUserId,
+      userId: this.currentUserId,
       timestamp: Date.now(),
       avatar: this.currentAvatarClass,
       isTyping: false,
@@ -44,7 +44,7 @@ class ChatRoom extends React.Component {
     socketObserver.send({
       text: '...',
       userName: this.currentUserName,
-      userId : this.currentUserId,
+      userId: this.currentUserId,
       timestamp: Date.now(),
       avatar: this.currentAvatarClass,
       isTyping,
@@ -59,9 +59,9 @@ class ChatRoom extends React.Component {
     });
   }
 
-  observer(data){
+  observer(data) {
     if (data.requestType === RequestTypes.REQUEST_TYPING) {
-      if(data.isTyping){
+      if (data.isTyping) {
         this.props.updateMessageTypingAdd && this.props.updateMessageTypingAdd(data)
       } else {
         this.props.updateMessageTypingRemove && this.props.updateMessageTypingRemove(data)
@@ -86,19 +86,21 @@ class ChatRoom extends React.Component {
   }
 
   render() {
-    return (<div className='chat'>
-      <Title userName={this.currentUserName}
-             avatarClass={this.currentAvatarClass}/>
+    return (
+      <div className='chat'>
+        <Title userName={this.currentUserName}
+               avatarClass={this.currentAvatarClass}/>
 
-      <MessageList chatData={this.props.chatData}
-                   currentUser={this.currentUserName}
-                   currentUserId={this.currentUserId}
-      />
+        <MessageList chatData={this.props.chatData}
+                     currentUser={this.currentUserName}
+                     currentUserId={this.currentUserId}
+        />
 
-      <SendMessage isLoading={this.props.chatData.loading}
-                   onMessageSend={this.onMessageSend}
-                   onMessageTyping={this.onMessageTyping}/>
-    </div>);
+        <SendMessage isLoading={this.props.chatData.loading}
+                     onMessageSend={this.onMessageSend}
+                     onMessageTyping={this.onMessageTyping}/>
+      </div>
+    );
   }
 };
 
@@ -130,8 +132,8 @@ ChatRoom.propTypes = {
     timeout: PropTypes.bool.isRequired
   }).isRequired,
   updateMessageList: PropTypes.func.isRequired,
-  updateMessageTypingAdd : PropTypes.func.isRequired,
-  updateMessageTypingRemove : PropTypes.func.isRequired
+  updateMessageTypingAdd: PropTypes.func.isRequired,
+  updateMessageTypingRemove: PropTypes.func.isRequired
 };
 
 export default ChatRoom;

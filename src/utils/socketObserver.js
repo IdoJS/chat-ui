@@ -24,9 +24,8 @@ class SocketObserver {
 
     window.socket = io(SOCKET_URL);
 
-
     window.socket.on(SOCKET_EVENT, (response) => {
-      if (response.id === SOCKET_IDENTIFIER){
+      if (response.id === SOCKET_IDENTIFIER) {
         observers.forEach(obs => typeof obs.o === 'function' && obs.o(response));
       }
     });

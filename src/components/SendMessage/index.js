@@ -7,6 +7,23 @@ const ENTER_KEY = 'Enter';
 
 class SendMessage extends React.PureComponent {
 
+  static propTypes = {
+    isLoading: PropTypes.bool.isRequired,
+    onMessageSend: PropTypes.func.isRequired,
+    onMessageTyping: PropTypes.func.isRequired
+  };
+
+  static defaultProps = {
+    isLoading: false,
+    userName: '',
+    onMessageSend: () => {
+      console.warn('Please pass onMessageSend as prop')
+    },
+    onMessageTyping: () => {
+      console.warn('Please pass onMessageTyping as prop')
+    },
+  };
+
   state = {
     inputMessage: ''
   };
@@ -70,21 +87,5 @@ class SendMessage extends React.PureComponent {
   }
 }
 
-SendMessage.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  onMessageSend: PropTypes.func.isRequired,
-  onMessageTyping: PropTypes.func.isRequired
-};
-
-SendMessage.defaultProps = {
-  isLoading: false,
-  userName: '',
-  onMessageSend: () => {
-    console.warn('Please pass onMessageSend as prop')
-  },
-  onMessageTyping: () => {
-    console.warn('Please pass onMessageTyping as prop')
-  },
-};
 
 export default SendMessage;

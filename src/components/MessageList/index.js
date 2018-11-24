@@ -3,9 +3,24 @@ import MessageListItem from './MessageListItem';
 import PropTypes from 'prop-types';
 
 class MessageList extends React.PureComponent {
+  static propTypes = {
+    currentUser: PropTypes.string.isRequired,
+    currentUserId: PropTypes.string.isRequired,
+    chatData: PropTypes.shape({
+      chatArr: PropTypes.array.isRequired,
+      typingArr: PropTypes.array.isRequired,
+    }).isRequired
+  };
+
+  componentDidUpdate() {
+    const objDiv = document.getElementById('chat_container');
+    objDiv.scrollTop = objDiv.scrollHeight;
+  }
+
   render() {
     const {chatData, currentUser, currentUserId} = this.props;
     const {chatArr, typingArr} = chatData;
+
     const items = chatArr.map((data, key) => {
       return <MessageListItem {...data} currentUser={currentUser} currentUserId={currentUserId} key={key}/>
     });
@@ -16,20 +31,6 @@ class MessageList extends React.PureComponent {
 
     return <ul className='chat_box' id='chat_container'>{items} {typing}</ul>
   }
-
-  componentDidUpdate() {
-    const objDiv = document.getElementById('chat_container');
-    objDiv.scrollTop = objDiv.scrollHeight;
-  }
 }
-
-MessageList.propTypes = {
-  currentUser: PropTypes.string.isRequired,
-  currentUserId: PropTypes.string.isRequired,
-  chatData: PropTypes.shape({
-    chatArr: PropTypes.array.isRequired,
-    typingArr: PropTypes.array.isRequired,
-  }).isRequired
-};
 
 export default MessageList;

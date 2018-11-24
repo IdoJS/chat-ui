@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {splitTimestamp} from '../../utils/formats';
 
 const MessageListItem = (props) => {
-  const {data, currentUser, currentUserId} = props;
+  const {data, currentUserId} = props;
   const {text, userName, timestamp, avatar, userId} = data;
   const currentTimeArr = splitTimestamp(timestamp);
   const isCurrentUserMsg = userId === currentUserId;
